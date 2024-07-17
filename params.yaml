@@ -1,0 +1,11 @@
+basic:
+  project: deepedge task
+
+make_dataset:
+  train_size: 1000
+  test_size: 300
+  val_size: 300
+  image_size: [50, 50, 1]
+
+train_cnn:
+  epochs: 100
