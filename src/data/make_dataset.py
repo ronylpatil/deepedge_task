@@ -2,24 +2,23 @@ import numpy as np
 
 
 def make_dataset(
-    train_size: int, test_size: int, val_size: int, image_size: tuple
+    train_size: int, test_size: int, val_size: int, image_size: list
 ) -> tuple:
     """
-    parameters:
+    Parameters:
         train_size: int
-                    no of training sample
-
+        - no of training sample
         test_size: int
-                   no of training sample
-
+        - no of training sample
         val_size: int
-                  no of training sample
-
+        - no of training sample
         image_size: tuple
-                    image size ex. (50, 50, 1), here 1 is dim
+        - image size ex. (50, 50, 1), here 1 is dim
 
-    description: generate nxn pixel representation of train, test, and validation set
+    Description: generate nxn pixel representation for training, testing, and validation set
 
+    Returns:
+    - tuple: return training i/p data, target i/p data, testing i/p data, testing target data, validation i/p data, and validation target data
     """
 
     train_images = np.zeros(
