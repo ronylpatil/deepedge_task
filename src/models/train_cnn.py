@@ -10,8 +10,28 @@ def train_model(
     y_test: np.ndarray,
     x_val: np.ndarray,
     y_val: np.ndarray,
-    epochs: int,
+    epochs: int
 ) -> float:
+    """
+    Parameters:
+        x_train: np.ndarray
+        - training input data 
+        y_train: np.ndarray
+        - training target data
+        x_test: np.ndarray
+        - testing input data
+        y_test: np.ndarray
+        - testing target data
+        x_val: np.ndarray
+        - validation input data
+        y_val: np.ndarray
+        - validation target data
+        epochs: int
+        - no of epochs
+        
+    Returns: 
+    - float: MAE of test data
+    """
     # Define the model
     model = models.Sequential()
     model.add(layers.Conv2D(32, (3, 3), activation="relu"))
