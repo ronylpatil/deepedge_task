@@ -11,13 +11,17 @@ def make_dataset(
         val_size: int - no of training sample
         image_size: tuple - image size ex. (50, 50, 1), here 1 is dim
 
-    Description: generate nxn pixel representation for training, testing, and validation set
+    Description: generate (N X N) pixel representation for training, testing, and validation set.
+                 As mentioned in problem statement there'll be only one non-zero pixel - 255 remaining will be zero,
+                 so after normalizing it, it'll become 1. So instead of explicitely normalizing it, I used pixel value 1
+                 instead of 255.
 
     Returns:
         - tuple: return training i/p data, target i/p data, testing i/p data, testing target data, validation i/p data,
                  and validation target data
     """
 
+    # create n dimension zero array
     train_images = np.zeros(
         (train_size, image_size[0], image_size[1], image_size[2]), dtype=np.float32
     )
@@ -34,19 +38,19 @@ def make_dataset(
     for i in range(train_size):
         x = np.random.randint(0, image_size[0])
         y = np.random.randint(0, image_size[0])
-        train_images[i][x][y] = 1
+        train_images[i][x][y] = 1                 # replacing 255 by 1
         train_coordinates.append([x, y])
 
     for i in range(test_size):
         a = np.random.randint(0, image_size[0])
         b = np.random.randint(0, image_size[0])
-        test_images[i][a][b] = 1
+        test_images[i][a][b] = 1                 # replacing 255 by 1
         test_coordinates.append([a, b])
 
     for i in range(val_size):
         c = np.random.randint(0, image_size[0])
         d = np.random.randint(0, image_size[0])
-        val_images[i][c][d] = 1
+        val_images[i][c][d] = 1                 # replacing 255 by 1
         val_coordinates.append([c, d])
 
     train_coordinates = np.array(train_coordinates).astype(np.float32)
