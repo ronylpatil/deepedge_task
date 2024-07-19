@@ -13,8 +13,9 @@ Project Organization
     ├── docs               <- A default Sphinx project; see sphinx-doc.org for details
     │
     ├── notebooks
-         ├── cnn_model.ipynb   <- Approach-1 Simple CNN to predict the non-zero coordinates.
-         └── train_flatten.ipynb    <- Approach-2 Flatten input pixels to predict the non-zero coordinates.
+    │    ├── cnn_model.ipynb   <- Approach-1 Simple CNN to predict the non-zero coordinates.
+    │    ├── train_flatten.ipynb    <- Approach-2 Flatten input pixels to predict the non-zero coordinates.
+    │    └── hybrid_model.ipynb    <- Approach-3 Used inverse data and CNN as feature extractor.
     │    
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment.
     │
@@ -22,7 +23,8 @@ Project Organization
     ├── src                <- Source code of project available here
     │   ├── __init__.py    <- Makes src a Python module
     │   │
-    │   ├── data          
+    │   ├── data
+    │   │   ├── inverse_data.py   <- Script to generate inverse data (zero pixel replaced by 1 & 255 value pixel replaced by 0)
     │   │   └── make_dataset.py   <- Scripts to generate data
     │   │
     │   └── models         
